@@ -3,7 +3,7 @@
 Tag Manager
 ===========
 
-![Last tested in Nuix 7.4](https://img.shields.io/badge/Nuix-7.4-green.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 8.4](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-8.4-green.svg)
 
 View the GitHub project [here](https://github.com/Nuix/Tag-Manager) or download the latest release [here](https://github.com/Nuix/Tag-Manager/releases).
 
@@ -61,7 +61,7 @@ Allows you to provide a regular expression used to determine which tags are curr
 # License
 
 ```
-Copyright 2018 Nuix
+Copyright 2020 Nuix
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

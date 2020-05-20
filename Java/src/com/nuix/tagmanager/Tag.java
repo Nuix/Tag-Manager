@@ -130,7 +130,7 @@ public class Tag {
 		result = result.replace("‘", "\\‘");
 		result = result.replace("’", "\\’");
 		result = result.replace("“", "\\“");
-		result = result.replace("”", "\\”");
+		result = result.replace("�?", "\\�?");
 		return result;
 	}
 	
