@@ -212,7 +212,9 @@ public class Tag {
 				
 				BulkAnnotater annotater = NuixConnection.getUtilities().getBulkAnnotater();
 				
-				for(Tag t : toUpdate){
+				for (int i = 0; i < toUpdate.size(); i++) {
+					pd.setMainProgress(i+1,toUpdate.size());
+					Tag t = toUpdate.get(i);
 					String newTagName = null;
 					if(!isRootTag()){
 						String patternString = "^"+Pattern.quote(getParent().getName())+"\\|";
@@ -226,12 +228,12 @@ public class Tag {
 						newTagName = newParentTagName+"|"+t.getName();
 					}
 					
-					pd.logMessage("Old Tag: "+t.getName());
+					pd.logMessage("==> Old Tag: "+t.getName());
 					pd.logMessage("Is Root: "+t.isRootTag());
-					pd.logMessage("New Tag: "+newTagName);
+					pd.logMessage("<== New Tag: "+newTagName);
 					
 					try {
-						pd.setMainStatus("Processing: "+t.getName());
+						pd.setMainStatus(String.format("Processing (%s/%s): %s", i+1, toUpdate.size(), t.getName()));
 						
 						pd.setSubStatus("Locating tagged items...");
 						Set<Item> items = t.getTaggedItems(nuixCase);
@@ -251,7 +253,7 @@ public class Tag {
 						
 						switch (cleanup) {
 							case remove:
-								pd.setSubStatus("Removing '"+t.getName()+"' from "+items.size()+" items");
+								pd.setSubStatusAndLogIt("Removing '"+t.getName()+"' from "+items.size()+" items");
 								annotater.removeTag(t.getName(), items, new ItemEventCallback() {
 									@Override
 									public void itemProcessed(ItemEventInfo info) {
@@ -261,7 +263,7 @@ public class Tag {
 								});
 								break;
 							case removeAndDelete:
-								pd.setSubStatus("Removing '"+t.getName()+"' from "+items.size()+" items");
+								pd.setSubStatusAndLogIt("Removing '"+t.getName()+"' from "+items.size()+" items");
 								annotater.removeTag(t.getName(), items, new ItemEventCallback() {
 									@Override
 									public void itemProcessed(ItemEventInfo info) {
