@@ -1,11 +1,11 @@
-![image](https://user-images.githubusercontent.com/11775738/40191792-4d3b568a-59b7-11e8-83af-d871e9c46d26.png)
-
 Tag Manager
 ===========
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 8.4](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-8.4-green.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 9.10](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-9.10-green.svg)
 
 View the GitHub project [here](https://github.com/Nuix/Tag-Manager) or download the latest release [here](https://github.com/Nuix/Tag-Manager/releases).
+
+![image](https://user-images.githubusercontent.com/11775738/40191792-4d3b568a-59b7-11e8-83af-d871e9c46d26.png)
 
 # Overview
 
@@ -30,7 +30,11 @@ Begin by running the script in a Nuix case which has some tags.  This will displ
 
 ### Copy/Move Tags
 
-Allows you to move or copy a nested tag to be nested under a different tag.  For example if I had a tag `Important Items|Cat Videos` and later realize that the tag `Cat videos` actually should be under a tag `Less Important Items` I can move that tag to be nested beneath it resulting in a new tag `Less Important Items|Cat Videos`.  Internally the script is basically just generating a new tag name, applying that tag to the items of the old and maybe removing the old tag from those items (depends on the settings used).
+Allows you to move or copy a nested tag to be nested under a different tag.
+
+For example if I have a tag <code>Important&nbsp;Items|Cat&nbsp;Videos</code> and I decide that the tag <code>Cat&nbsp;videos</code> actually should be under a tag <code>Watch&nbsp;Later</code> rather than <code>Important&nbsp;Items</code>, I can move that tag to be nested beneath <code>Watch&nbsp;Later</code> resulting in a new tag <code>Watch&nbsp;Later|Cat&nbsp;Videos</code>.
+
+Internally the script is generating a new tag name, applying that tag to the items with the old tag and then handling the old tag based on the setting of **Old Tag Handling**.
 
 #### Old Tag Handling
 
@@ -54,6 +58,8 @@ Populates the text box governing which tags are currently visible with a regular
 
 The tag manager dialog will refresh the listing of tags when it performs operations, but it is still possible to add/remove tags in the case independent of the script while it is running.  There currently is no way for the script to be notified of these changes it did not make.  This button allows you to manually refresh the listing.
 
+If you modify tags in the case outside of this script while the script is running and you want those changes to show up in the tag listing, click this button.
+
 ### Filter Visible
 
 Allows you to provide a regular expression used to determine which tags are currently visible in the listing.  Note that in regular expression the pipe character (`|`) is a special character and therefore must be properly escaped when used in the filter by providing `\|`.
@@ -61,7 +67,7 @@ Allows you to provide a regular expression used to determine which tags are curr
 # License
 
 ```
-Copyright 2020 Nuix
+Copyright 2022 Nuix
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
