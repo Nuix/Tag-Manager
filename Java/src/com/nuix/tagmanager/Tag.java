@@ -131,6 +131,13 @@ public class Tag {
 		result = result.replace("â€™", "\\â€™");
 		result = result.replace("â€œ", "\\â€œ");
 		result = result.replace("â€?", "\\â€?");
+		
+		// Smart quotes need escaping
+		result = result.replace("‘", "\\‘");
+		result = result.replace("’", "\\’");
+		result = result.replace("“", "\\“");
+		result = result.replace("”", "\\”");
+		
 		return result;
 	}
 	
